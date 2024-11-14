@@ -8,22 +8,36 @@
         }
     }
 
-    class Car<TEngine> where TEngine : Engine
+    abstract class Car<TEngine> where TEngine : Engine
     {
         public TEngine Engine;
 
-        public virtual void ChangePart<TPart>(TPart newPart) where TPart : CarPart
+        public abstract void ChangePart<TPart>(TPart newPart) where TPart : CarPart;
+    }
+
+    class ElectricCar<TEngine> : Car<TEngine> where TEngine : Engine
+    {
+        public override void ChangePart<TPart>(TPart newPart)
+        {
+            
+        }
+
+    }
+
+    class GasCar<TEngine> : Car<TEngine> where TEngine : Engine
+    {
+        public override void ChangePart<TPart>(TPart newPart)
         {
 
         }
-    }
 
-    class CarPart
+    }
+    abstract class CarPart
     {
 
     }
 
-    class Engine
+    abstract class Engine
     {
     }
 
